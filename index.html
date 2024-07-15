@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="todo-app">
+            <div class="todo-header">
+                <h2>To-Do List <img src="images/icon.png" alt="To-Do List Icon"></h2>
+                <div class="menu-icon" id="menu-icon">⋮</div>
+            </div>
+            <div class="add-task-button">
+                <img src="images/plus.svg" alt="Add"> Add a task
+            </div>
+
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Search tasks...">
+                <button id="add">Search</button>
+            </div>
+            <ul id="list-container"></ul>
+        </div>
+    </div>
+    <!-- Dialog for sort and filter options -->
+    <div id="sort-filter-dialog" class="dialog">
+        <div class="dialog-content">
+            <h3>Sort and Filter</h3>
+            <div class="sort-section">
+                <label for="sort-by">Sort By:</label>
+                <select id="sort-by">
+                    <option value="custom">Custom order</option>
+                    <option value="dueDate">Due date</option>
+                    <option value="alphabetical">Alphabetical</option>
+                    <option value="lastUpdated">Last updated</option>
+                    <option value="priority">Priority</option>
+                </select>
+            </div>
+            <div class="filter-section">
+                <h4>Filters</h4>
+                <div>
+                    <label for="due-date-start">Due Date Range:</label>
+                    <input type="date" id="due-date-start">
+                    <input type="date" id="due-date-end">
+                </div>
+                <div>
+                    <label for="category">Category:</label>
+                    <input type="text" id="category">
+                </div>
+                <div>
+                    <label for="priority">Priority:</label>
+                    <select id="priority">
+                        <option value="all" selected>All</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+            </div>
+            <button>Apply</button>
+            <button>Cancel</button>
+        </div>
+    </div>
+
+    <div id="add-task-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-task-modal" class="close-btn">&times;</span>
+            <h3>Add/Edit Task</h3>
+            <input type="text" id="task-title" placeholder="Task Title">
+            <input type="text" id="task-tags" placeholder="Tags (comma-separated)">
+            <select id="task-priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+            </select>
+            <input type="text" id="task-category" placeholder="Category">
+            <input type="date" id="task-due-date">
+            <h4>Subtasks</h4>
+            <ul id="subtasks-list"></ul>
+            <button id="add-subtask">Add Subtask</button>
+            <button id="save-task">Save Task</button>
+        </div>
+    </div>
+
+    <div id="add-subtask-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-subtask-modal" class="close-btn">&times;</span>
+            <h3>Add Subtask</h3>
+            <input type="text" id="subtask-title" placeholder="Subtask Title">
+            <select id="subtask-priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+            </select>
+            <input type="date" id="subtask-due-date">
+            <button id="save-subtask">Save Subtask</button>
+        </div>
+    </div>
+
+    <div id="notification-container" style="display: none;">
+        <div id="notification-content"></div>
+        <button id="close-notification">Close</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
